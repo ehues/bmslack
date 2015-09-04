@@ -1,0 +1,40 @@
+Config
+1. Get golang - https://github.com/golang/go/wiki/Ubuntu
+2. Get cf tool - https://github.com/cloudfoundry/cli/releases
+
+Getting a Go web server running on bluemix:
+3. Create a 'Procfile' 
+-- http://adventgo.blogspot.ca/2014/07/deploying-go-on-ibm-bluemix.html
+-- specifies what should run in CF
+
+4. Export GOPATH
+5. Create and build locally
+6. Push to bluemix
+-- `cf login`
+-- create a .godir
+-- `cf push <whatever-you-put-in-.godir>`
+
+
+Responding to a slack webhook on bluemix:
+7. Configure your slack webhook
+-- https://api.slack.com/outgoing-webhooks
+8. Add a trivial handler that always writes "i'm a bot"
+9. Include some logging (for funsies)
+-- Use `cf logs bmslack ` to tail your logs
+-- See https://developer.ibm.com/bluemix/2014/10/29/accessing-application-logs-bluemix/
+
+
+Using a slack library:
+10. Choose a library. We're using https://github.com/nlopes/slack
+11. `go get github.com/nlopes/slack`
+12. Let's post a message to some hardcoded channel
+13. Get a new bot token by going to https://ljkadljkasdljaksfajlf.slack.com/services/new/bot
+14. Run locally
+
+
+
+
+References:
+- Getting started with BM and Go: 
+-- http://www.ibm.com/developerworks/cloud/library/cl-golang-photo-archive-bluemix/index.html
+-- http://adventgo.blogspot.ca/2014/07/deploying-go-on-ibm-bluemix.html
